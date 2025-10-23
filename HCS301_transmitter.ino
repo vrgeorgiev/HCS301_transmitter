@@ -14,7 +14,7 @@ void setup() {
 }
 
 void preamble() {
-  for (int i = 0; i < 23; i++) {
+  for (int i = 0; i < 12; i++) {
     digitalWrite(TX_PIN, HIGH);
     delayMicroseconds(PERIOD);
     digitalWrite(TX_PIN, LOW);
@@ -54,6 +54,12 @@ void loop() {
     preamble();
     header();
     sendData(buff, sizeof(buff));   
+    preamble();
+    header();
+    sendData(buff, sizeof(buff));
+    preamble();
+    header();
+    sendData(buff, sizeof(buff));
     sent = 1;
   }
 }
